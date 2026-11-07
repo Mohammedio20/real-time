@@ -20,6 +20,13 @@ app.set("query parser", "extended");
 
 app.use(express.json({ limit: "50mb" }));
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "Real-time API is running",
+  });
+});
+
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/chats", chatRouter);
 app.use("/api/v1/messages", messageRouter);
