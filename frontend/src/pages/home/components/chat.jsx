@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { createNewMessage, getAllMessages } from "../../../apiCalls/message";
 import toast from "react-hot-toast";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import moment from "moment";
 import { clearUnreadMessagesCount } from "../../../apiCalls/chats";
 import { setSelectedChat, updateChat } from "../../../redux/userSlice";
 import store from "../../../redux/store";
-import EmojiPicker from "emoji-picker-react";
+
+const EmojiPicker = lazy(() => import("emoji-picker-react"));
 
 const EMPTY_MESSAGES = [];
 
@@ -398,11 +399,13 @@ function ChatArea({ socket }) {
           </div>
           {showEmojiPicker && (
             <div className="emoji-picker-container">
-              <EmojiPicker
-                onEmojiClick={(emoji) =>
-                  setMessage((currentMessage) => currentMessage + emoji.emoji)
-                }
-              />
+              <Suspense fallback={null}>
+                <EmojiPicker
+                  onEmojiClick={(emoji) =>
+                    setMessage((currentMessage) => currentMessage + emoji.emoji)
+                  }
+                />
+              </Suspense>
             </div>
           )}
           <div className="send-message-div">
