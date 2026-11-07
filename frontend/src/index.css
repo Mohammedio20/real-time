@@ -1,0 +1,1251 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+/* =========================
+   BACKGROUND IMAGE
+========================= */
+
+.container-back-img {
+  background-image: url("/images/real-time.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: -2;
+}
+
+/* =========================
+   BACKGROUND OVERLAY
+========================= */
+
+.container-back-color {
+  background: rgba(10, 12, 20, 0.55);
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: -1;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: auto;
+
+  padding: 30px 20px;
+}
+
+/* =========================
+   GLASSMORPHISM CARD
+========================= */
+
+.card {
+  width: 430px;
+  max-width: 100%;
+
+  position: relative;
+
+  border-radius: 28px;
+
+  /* Increased card height */
+  padding: 50px 32px 45px;
+
+  color: #ffffff;
+  z-index: 1;
+
+  /* Glass effect */
+  background: rgba(18, 20, 32, 0.45);
+
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+
+  /* Gradient border */
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+
+  /* Shadow */
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+/* =========================
+   GRADIENT BORDER EFFECT
+========================= */
+
+.card::before {
+  content: "";
+
+  position: absolute;
+  inset: -1.5px;
+
+  border-radius: 28px;
+  padding: 1.5px;
+
+  background: linear-gradient(
+    135deg,
+    oklch(47.64% 0.1867 297.061 / 0.7) 0%,
+    rgba(255, 107, 74, 0.6) 50%,
+    rgba(255, 154, 60, 0.7) 100%
+  );
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+/* =========================
+   CARD TITLE
+========================= */
+
+.card_title {
+  text-align: center;
+
+  /* Increased spacing */
+  margin-bottom: 32px;
+}
+
+.card_title h1 {
+  font-size: 26px;
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+
+  color: #ffffff;
+
+  margin-bottom: 4px;
+}
+
+/* =========================
+   FORM CONTAINER
+========================= */
+
+.form {
+  width: 100%;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+
+  /* Increased spacing between fields */
+  gap: 18px;
+}
+
+/* =========================
+   FIRST NAME & LAST NAME
+========================= */
+
+.column {
+  display: flex;
+  gap: 12px;
+
+  width: 100%;
+}
+
+.column input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* =========================
+   INPUT FIELDS
+========================= */
+
+.form input {
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 12px;
+
+  /* Increased input height */
+  padding: 16px 18px;
+
+  font-size: 14px;
+  color: #ffffff;
+
+  outline: none;
+
+  transition: all 0.25s ease;
+}
+
+/* Input Placeholder */
+
+.form input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+
+  font-weight: 300;
+}
+
+/* Input Hover */
+
+.form input:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Input Focus */
+
+.form input:focus {
+  border-color: rgba(255, 107, 74, 0.85);
+
+  background: rgba(255, 255, 255, 0.12);
+
+  box-shadow: 0 0 16px rgba(255, 107, 74, 0.25);
+}
+
+/* =========================
+   SIGNUP & LOGIN BUTTON
+========================= */
+
+.form button {
+  width: 100%;
+
+  background: linear-gradient(90deg, #ff4e3e 0%, #ff6b3d 100%);
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  /* Increased button height */
+  padding: 16px 20px;
+
+  border-radius: 12px;
+
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  margin-top: 12px;
+
+  box-shadow: 0 8px 25px rgba(255, 78, 62, 0.45);
+
+  transition: all 0.25s ease;
+}
+
+/* Button Hover */
+
+.form button:hover {
+  background: linear-gradient(90deg, #ff5f4e 0%, #ff7c4f 100%);
+
+  box-shadow: 0 10px 30px rgba(255, 78, 62, 0.65);
+
+  transform: translateY(-1.5px);
+}
+
+/* Button Click */
+
+.form button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   FOOTER / LOGIN & SIGNUP LINK
+========================= */
+
+.card_terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Increased footer spacing */
+  margin-top: 28px;
+}
+
+.card_terms span {
+  font-size: 13px;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  font-weight: 300;
+
+  text-align: center;
+}
+
+/* Links */
+
+.card a {
+  color: #ff6b3d;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  margin-left: 6px;
+
+  transition: color 0.2s ease;
+
+  cursor: pointer;
+}
+
+/* Link Hover */
+
+.card a:hover {
+  color: #ff8963;
+
+  text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  .card {
+    padding: 40px 22px 35px;
+
+    border-radius: 20px;
+  }
+
+  .card_title h1 {
+    font-size: 23px;
+  }
+
+  /* Stack first and last name vertically */
+  .column {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .form input {
+    padding: 15px 16px;
+  }
+
+  .form button {
+    padding: 15px 18px;
+  }
+
+  .card_terms span {
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   LOADER STYLES
+========================= */
+.loader-overlay {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(231, 76, 60, 0.7); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.loader-spinner,
+.loader-spinner:after {
+  box-sizing: border-box;
+}
+.loader-spinner {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.loader-spinner:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid white;
+  border-color: white transparent white transparent;
+  animation: loader-spinner 1.2s infinite;
+}
+@keyframes loader-spinner {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+/*******************************************************
+********CSS FOR HOME PAGE*******************************
+********************************************************/
+
+.home-page {
+  background-color: #fdedec;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.main-content {
+  display: flex;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px 10px;
+  flex: 1 1 0;
+  min-height: 0;
+  min-width: 0;
+}
+
+/*******************************************************
+********CSS FOR HEADER COMPONENT************************
+********************************************************/
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px 30px;
+  justify-content: space-between;
+  border-bottom: #bbb 1px solid;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  color: #28282b;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.app-logo-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff7a59, #e74c3c);
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(231, 76, 60, 0.25);
+  flex-shrink: 0;
+}
+
+.app-logo-text {
+  color: #28282b;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+i {
+  margin: 5px 10px;
+}
+
+.app-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logged-user-name {
+  color: #28282b;
+  font-weight: bold;
+}
+
+.logged-user-profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: #e74c3c;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+}
+
+.logout-btn i {
+  margin: 0;
+}
+
+/*******************************************************
+********CSS FOR SIDEBAR COMPONENT************************
+********************************************************/
+.app-sidebar {
+  width: 30%;
+  min-width: 280px;
+  padding: 0px 20px;
+}
+
+/*******************************************************
+********CSS FOR SEARCH COMPONENT************************
+********************************************************/
+
+.user-search-area {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.user-search-text {
+  width: 100%;
+  height: 40px;
+  padding: 10px 44px 10px 20px;
+  border: none;
+  border-radius: 20px;
+  color: #28282b;
+  border: #ddd 1px solid;
+}
+
+.user-search-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  transform: translateY(-50%);
+  color: #e74c3c;
+  pointer-events: none;
+}
+
+.user-search-btn::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.user-search-btn::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 7px;
+  height: 2px;
+  background-color: currentColor;
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+/*******************************************************
+********CSS FOR USER LIST COMPONENT*********************
+********************************************************/
+.filtered-user {
+  border-bottom: #ccc 1px solid;
+  padding: 10px 10px;
+  color: #28282b;
+  cursor: pointer;
+  background-color: white;
+}
+
+.selected-user {
+  border-bottom: #ccc 1px solid;
+  padding: 10px 10px;
+  color: white;
+  cursor: pointer;
+  background-color: #e74c3c;
+}
+
+.user-search-filter {
+  width: 100%;
+}
+
+.filter-user-display {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+}
+.filter-user-details {
+  flex: 1;
+  min-width: 0;
+}
+.user-display-name {
+  padding: 1px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.user-display-email {
+  padding: 1px 20px;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-default-avatar,
+.user-profile-image,
+.user-selected-avatar {
+  width: 50px;
+  height: 50px;
+  flex: 0 0 50px;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+}
+
+.user-default-avatar {
+  background-color: #e74c3c;
+  color: white;
+}
+.user-selected-avatar {
+  background-color: white;
+  color: #e74c3c;
+}
+
+.user-profile-image {
+  object-fit: cover;
+}
+.user-start-chat {
+  margin-left: auto;
+  flex: 0 0 auto;
+  padding: 10px 0;
+}
+.user-start-chat-btn {
+  padding: 8px 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #e74c3c;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .filter-user-display {
+    gap: 8px;
+  }
+
+  .user-display-name,
+  .user-display-email {
+    padding-right: 0;
+    padding-left: 8px;
+  }
+
+  .user-start-chat-btn {
+    padding: 8px 6px;
+  }
+}
+
+/*******************************************************
+*************CSS STYLES FOR CHAT AREA**************
+********************************************************/
+
+.app-chat-area {
+  position: relative;
+  background-color: white;
+  width: 70%;
+  padding: 20px 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/*******************************************************
+*************CSS STYLES FOR CHAT AREA HEADER************
+********************************************************/
+.app-chat-area-header {
+  padding: 10px 30px;
+  margin-bottom: 20px;
+  border-bottom: #bbb 1px solid;
+  text-align: right;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+/*******************************************************
+********CSS STYLES FOR CHAT AREA & CHAT INPUT***********
+********************************************************/
+.main-chat-area {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 10px 20px;
+  scrollbar-color: #e74c3c #fdedec;
+  scrollbar-width: thin;
+}
+
+.chat-message {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  overflow-wrap: anywhere;
+}
+
+.sent-message {
+  align-self: flex-end;
+  background-color: #e74c3c;
+  color: white;
+}
+
+.received-message {
+  align-self: flex-start;
+  background-color: #f1f1f1;
+  color: #28282b;
+}
+
+.send-message-div {
+  position: relative;
+  margin-top: 20px;
+}
+
+.emoji-picker-container {
+  position: absolute;
+  right: 30px;
+  bottom: 80px;
+  z-index: 1;
+}
+
+.send-message-input {
+  width: 100%;
+  height: 40px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #28282b;
+  border: #ddd 1px solid;
+}
+
+.send-message-btn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  color: #e74c3c;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+}
+
+.send-emoji-btn {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: #e74c3c;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+}
+
+.send-image-btn {
+  position: absolute;
+  top: 8px;
+  right: 88px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.send-message-btn::before {
+  content: "\27A4";
+  display: block;
+  transform: rotate(-35deg);
+}
+
+/*******************************************************
+***************CSS FOR CHAT MESSAGES********************
+********************************************************/
+.message-container {
+  display: flex;
+}
+.send-message,
+.received-message {
+  padding: 10px 20px;
+  margin-top: 5px;
+  border-radius: 10px;
+  font-size: 14px;
+  width: fit-content;
+}
+
+.send-message {
+  background-color: #e74c3c;
+  color: white;
+  margin-left: 100px;
+  border-top-right-radius: 0px;
+}
+
+.received-message {
+  background-color: #ddd;
+  color: #28282b;
+  margin-right: 100px;
+  border-top-left-radius: 0px;
+}
+
+.message-timestamp {
+  width: fit-content;
+  font-size: 13px;
+}
+
+.read-message-icon {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e74c3c;
+  border-radius: 50%;
+  color: #e74c3c;
+  vertical-align: -2px;
+}
+
+.read-message-icon::before {
+  content: "\2713";
+  font-size: 10px;
+  line-height: 1;
+}
+
+/*****************************************************
+***********CUSTOM SCROLLBAR FOR CHATAREA**************
+******************************************************/
+.main-chat-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.main-chat-area::-webkit-scrollbar-track {
+  background-color: #fdedec;
+  border-radius: 10px;
+}
+
+/* Handle */
+.main-chat-area::-webkit-scrollbar-thumb {
+  background: #e74c3c;
+  border: 2px solid #fdedec;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.main-chat-area::-webkit-scrollbar-thumb:hover {
+  background: #c0392b;
+}
+
+@media only screen and (max-width: 1000px) {
+  .app-sidebar {
+    width: 34%;
+    min-width: 220px;
+  }
+
+  .app-chat-area {
+    width: 66%;
+  }
+}
+
+.mobile-chat-back {
+  display: none;
+}
+
+.last-message-timestamp {
+  font-size: 13px;
+}
+
+.unread-message-count {
+  text-align: center;
+  float: right;
+  font-size: 13px;
+  padding-top: 3px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #e74c3c;
+  font-weight: bold;
+  color: white;
+}
+
+.typing-indcator {
+  font-size: 12px;
+  color: rgb(197, 142, 197);
+}
+
+/*****************************************************
+*************CSS STYLES FOR PROFILE PAGE**************
+******************************************************/
+
+.profile-page-container {
+  display: flex;
+  width: 80%;
+  color: #28282b;
+  margin: 100px auto;
+  padding: 20px 20px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.profile-pic-container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+.profile-info-container {
+  width: 70%;
+  padding: 30px 10px;
+}
+.user-profile-pic-upload,
+.user-default-profile-avatar {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  color: #28282b;
+  border: #ddd 5px solid;
+  font-size: 120px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 240px;
+}
+
+.user-profile-name {
+  padding: 10px 0px;
+  border-bottom: #cdcdcd 1.5px solid;
+  margin-bottom: 30px;
+}
+.select-profile-pic-container {
+  padding: 30px 0px;
+}
+
+/* file upload button */
+input[type="file"]::file-selector-button {
+  border-radius: 4px;
+  padding: 0 16px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #28282b;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  margin-right: 16px;
+  transition: background-color 200ms;
+}
+
+/* file upload button hover state */
+input[type="file"]::file-selector-button:hover {
+  background-color: #f3f4f6;
+  color: #28282b;
+}
+
+/* file upload button active state */
+input[type="file"]::file-selector-button:active {
+  background-color: #e5e7eb;
+  color: #28282b;
+}
+
+@media (max-width: 640px) {
+  .app-header {
+    flex-wrap: nowrap;
+    align-items: center;
+    min-height: 58px;
+    padding: 8px 12px;
+  }
+
+  .app-logo {
+    gap: 7px;
+    min-width: 0;
+    font-size: 19px;
+  }
+
+  .app-logo-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+  }
+
+  .app-user-profile {
+    gap: 7px;
+    min-width: 0;
+  }
+
+  .logged-user-name {
+    max-width: 110px;
+    overflow: hidden;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .logged-user-profile-pic {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    font-size: 16px;
+    line-height: 34px;
+  }
+
+  .logout-btn {
+    width: 34px;
+    height: 38px;
+    flex: 0 0 34px;
+  }
+
+  .main-content {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .app-sidebar {
+    width: 100%;
+    min-width: 0;
+    padding: 8px 12px;
+    overflow-y: auto;
+  }
+
+  .user-search-area {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .filter-user-display {
+    gap: 8px;
+  }
+
+  .user-display-name,
+  .user-display-email {
+    padding-right: 0;
+    padding-left: 4px;
+  }
+
+  .user-display-name {
+    font-size: 14px;
+  }
+
+  .last-message-timestamp {
+    font-size: 11px;
+  }
+
+  .main-content.chat-open .app-sidebar {
+    display: none;
+  }
+
+  .app-chat-area,
+  .main-content.chat-open .app-chat-area {
+    width: 100%;
+    padding: 8px 10px 12px;
+    border-radius: 0;
+  }
+
+  .app-chat-area-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    min-height: 44px;
+    margin-bottom: 8px;
+    padding: 4px 2px 10px;
+    text-align: left;
+  }
+
+  .mobile-chat-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #e74c3c;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .mobile-chat-back i {
+    margin: 0;
+  }
+
+  .main-chat-area {
+    padding: 8px 2px;
+  }
+
+  .send-message,
+  .received-message {
+    max-width: min(88vw, 520px);
+    margin-right: 0;
+    margin-left: 0;
+    padding: 9px 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .send-message-div {
+    margin-top: 10px;
+  }
+
+  .send-message-input {
+    padding: 10px 126px 10px 12px;
+  }
+
+  .send-image-btn {
+    right: 88px;
+  }
+
+  .send-emoji-btn {
+    right: 48px;
+  }
+
+  .send-message-btn {
+    right: 5px;
+  }
+
+  .emoji-picker-container {
+    right: 0;
+    bottom: 60px;
+    max-width: calc(100vw - 20px);
+  }
+
+  .profile-page-container {
+    flex-direction: column;
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+    margin: 12px auto;
+    padding: 18px;
+    overflow-y: auto;
+  }
+
+  .profile-pic-container,
+  .profile-info-container {
+    width: 100%;
+  }
+
+  .profile-info-container {
+    padding: 18px 0 0;
+    overflow-wrap: anywhere;
+  }
+
+  .user-profile-pic-upload,
+  .user-default-profile-avatar {
+    width: min(52vw, 200px);
+    height: min(52vw, 200px);
+    font-size: min(26vw, 100px);
+    line-height: min(52vw, 200px);
+  }
+
+  .user-profile-name h1 {
+    font-size: 22px;
+    overflow-wrap: anywhere;
+  }
+
+  .select-profile-pic-container {
+    padding: 20px 0 0;
+  }
+
+  .select-profile-pic-container input[type="file"] {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .logged-user-name {
+    display: none;
+  }
+
+  .user-start-chat-btn {
+    padding: 7px 6px;
+    font-size: 11px;
+  }
+}

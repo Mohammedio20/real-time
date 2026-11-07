@@ -1,0 +1,229 @@
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/*******************************************************
+************* CSS STYLES FOR LOGIN & SIGNUP ************
+********************************************************/
+/*
+
+/* Fullscreen Background Image ?? */
+/*
+.container-back-img {
+  background-image: url("/images/real-time.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+/* Subtle Dark Overlay to bring the background to life */
+.container-back-color {
+  background: rgba(10, 12, 20, 0.55);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Page Container */
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Gradient-Bordered Frosted Glass Card */
+.card {
+  width: 430px;
+  max-width: 100%;
+  position: relative;
+  border-radius: 28px;
+  padding: 40px 32px 34px;
+  color: #ffffff;
+  z-index: 1;
+
+  /* Frosted Glass Base */
+  background: rgba(18, 20, 32, 0.45);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+
+  /* Neon Gradient Border Effect */
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+/* Gradient Border Wrap */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 28px;
+  padding: 1.5px;
+  background: linear-gradient(
+    135deg,
+    rgba(142, 68, 255, 0.7) 0%,
+    rgba(255, 107, 74, 0.6) 50%,
+    rgba(255, 154, 60, 0.7) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Header & Titles */
+.card_title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.card_title h1 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+/* Form Styles */
+.form {
+  width: 100%;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Two-column Input Row */
+.column {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.column input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Glassmorphic Form Inputs */
+.form input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  padding: 13px 18px;
+  font-size: 14px;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.form input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 300;
+}
+
+.form input:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form input:focus {
+  border-color: rgba(255, 107, 74, 0.85);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 16px rgba(255, 107, 74, 0.25);
+}
+
+/* Glowing Neon Orange Button */
+.form button {
+  width: 100%;
+  background: linear-gradient(90deg, #ff4e3e 0%, #ff6b3d 100%);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 13px 20px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 8px 25px rgba(255, 78, 62, 0.45);
+  transition: all 0.25s ease;
+}
+
+.form button:hover {
+  background: linear-gradient(90deg, #ff5f4e 0%, #ff7c4f 100%);
+  box-shadow: 0 10px 30px rgba(255, 78, 62, 0.65);
+  transform: translateY(-1.5px);
+}
+
+.form button:active {
+  transform: translateY(0);
+}
+
+/* Card Terms / Footer */
+.card_terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.card_terms span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+.card a {
+  color: #ff6b3d;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 6px;
+  transition: color 0.2s ease;
+}
+
+.card a:hover {
+  color: #ff8963;
+  text-decoration: underline;
+}
+
+/* Responsive Mobile Layout */
+@media (max-width: 480px) {
+  .card {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+
+  .column {
+    flex-direction: column;
+    gap: 14px;
+  }
+} 
