@@ -10,9 +10,18 @@ const app = express();
 app.use(cors());
 const server = require("http").createServer(app);
 
+const socketOrigins = [
+  "http://localhost:5173",
+  "https://real-time-react-nmwd.onrender.com",
+  ...(process.env.CLIENT_URL || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
+];
+
 const io = require("socket.io")(server, {
   cors: {
-    origin: ["http://localhost:5173"],
+    origin: [...new Set(socketOrigins)],
     methods: ["GET", "POST"],
   },
 });
