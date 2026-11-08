@@ -20,7 +20,7 @@ export const getAllUsers = async () => {
 
 export const uploadProfilePic = async (image) => {
   const response = await axiosInstance.post(
-    "/api/v1/users/upload-profile-pic",
+    url + "/api/v1/users/upload-profile-pic",
     { image },
   );
   return response.data;
